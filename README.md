@@ -3,6 +3,7 @@ Simple conversions between arabic and roman numerals in multiple programing lang
 
 - [Project-Romanizer](#project-romanizer)
   - [Description](#description)
+    - [Implemented languages](#implemented-languages)
   - [Roman numeral system](#roman-numeral-system)
     - [Subtractive notation](#subtractive-notation)
     - [Large values](#large-values)
@@ -11,6 +12,9 @@ Simple conversions between arabic and roman numerals in multiple programing lang
 
 ## Description
 The problem of converting different numbers between their representatiosn in aribic and roman numerals is a common test for developing programers. As someone who enjoys the use of roman numerals in certain situations I find this challenge appealing to me compared to the other popular introdultory challenges. I have decided reciently to begin expanding my familiarity with new languages and so I will attempt to reproduce the solutions in various selected languages. The gial is not for this to be a comprehensive list of all possible programing enviornments, or the most computationally efficient method of implementing the program in any particular situation. It is a simple method of exploring the languages given.
+
+### Implemented languages
+- [Rust](rst/)
 
 ## Roman numeral system
 The roman numeral system is a base 10 number system which divides each significant figure into two domains, with a symbol denoting the upper and lower halves of the domain. For relatively small values these domains are denoted as:
