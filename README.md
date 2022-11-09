@@ -16,6 +16,7 @@ The problem of converting different numbers between their representatiosn in ari
 ### Implemented languages
 - [Julia](jul/)
 - [Rust](rst/)
+- [Zig](zig/)
 
 ## Roman numeral system
 The roman numeral system is a base 10 number system which divides each significant figure into two domains, with a symbol denoting the upper and lower halves of the domain. For relatively small values these domains are denoted as:
