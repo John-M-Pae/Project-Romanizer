@@ -7,7 +7,7 @@ Simple conversions between arabic and roman numerals in multiple programing lang
   - [Roman numeral system](#roman-numeral-system)
     - [Subtractive notation](#subtractive-notation)
     - [Large values](#large-values)
-    - [Zero values](#zero-values)
+    - [The zero value](#the-zero-value)
     - [Fractions](#fractions)
 
 ## Description
