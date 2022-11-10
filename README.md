@@ -15,6 +15,7 @@ The problem of converting different numbers between their representatiosn in ari
 
 ### Implemented languages
 - [Julia](jul/)
+- [Racket](rak/)
 - [Rust](rst/)
 - [Zig](zig/)
 
