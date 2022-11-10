@@ -42,7 +42,7 @@ Each of these compositions can be written as "*a* before *b*", so in the case of
 ### Large values
 I am choosing to a system of large values based on the *apostrophus* system which was in use during the roman empire, this system does not include values passed 100,000 in value as this would have been used as a shorthand way to communicate simply the idea of "*very big number*". Other than the aesthetic element this means that I will be forcing myself to include non-ASCII standard unicode characters in the various implementations of the project.
 
-### Zero values
+### The zero value
 So far as I can tell there are two conventions for representing the quantity 0 in the roman system, this first of these which appears to be contemporary to the roman era is the use the full latin word *"nulla"* literally meaning none to represent the value. A more contemporary choice is to use the character *Z* instead following the convention of the apothecaries' system of weights and measures which is based on roman standards of measurement. I will choose to use the apothecaries' notation as it restricts as many digits as possible to a single character. If this choice should change in the future the implementations should be able to accommodate the change.
 
 ### Fractions
