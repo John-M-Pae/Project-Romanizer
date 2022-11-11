@@ -32,9 +32,40 @@ fn parse_line_as_num(line: String) -> Option<f32>
     }
 }
 
-fn arabic_to_roman(val: f32) -> String
+fn arabic_to_roman(value: f32) -> String
 {
-    if val == 0.0 {return "Z".to_string();}
+    if value == 0.0 {return "Z".to_string();}
 
-    todo!();
+    let mut val = value;
+
+    let numerals = [
+        Numeral{value: 100.0, symbol: "C"},
+        Numeral{value: 90.0, symbol: "XC"},
+        Numeral{value: 50.0, symbol: "L"},
+        Numeral{value: 40.0, symbol: "XL"},
+        Numeral{value: 10.0, symbol: "X"},
+        Numeral{value: 9.0, symbol: "IX"},
+        Numeral{value: 5.0, symbol: "V"},
+        Numeral{value: 4.0, symbol: "IV"},
+        Numeral{value: 1.0, symbol: "I"}
+    ];
+
+    let mut result = String::new();
+
+    for num in numerals
+    {
+        while val >= num.value
+        {
+            result.push_str(num.symbol);
+            val -= num.value;
+        }
+    }
+
+    return result;
+}
+
+struct Numeral<'a>
+{
+    value: f32,
+    symbol: &'a str
 }
