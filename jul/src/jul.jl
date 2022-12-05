@@ -23,7 +23,40 @@ function roman(val)
     if val == 0
         return 'Z'
     end
+    out = ""
+    numerals = [
+        (10^5, 'ↈ'),
+        (5*10^4, 'ↇ'),
+        (10^4, 'ↂ'),
+        (5*10^3, 'ↁ'),
+        (10^3, 'ↀ'),
+        (9*10^2, "Cↀ"),
+        (5*10^2, 'D'),
+        (4*10^2, "CD"),
+        (10^2, 'C'),
+        (9*10, "XC"),
+        (5*10, 'L'),
+        (4*10, "XL"),
+        (10, 'X'),
+        (9, "IX"),
+        (5, 'V'),
+        (4, "IV"),
+        (1, 'I'),
+        (1/2, 'S'),
+        (5/12, '⁙'),
+        (1/3, '∷'),
+        (1/4, '∴'),
+        (1/6, ':'),
+        (1/12, '·')
+    ]
+    for numeral in numerals
+        while val >= numeral[1]
+            val -= numeral[1]
+            out *= numeral[2]
+        end
+    end
 
+    return out
 end
 
 end
