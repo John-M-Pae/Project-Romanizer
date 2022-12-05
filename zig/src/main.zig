@@ -1,30 +1,48 @@
 const std = @import("std");
 const io = std.io;
+const mem = std.mem;
 const fmt = std.fmt;
+const heap = std.heap;
 
 pub fn main() !void
 {
-    const stdout = io.getStdOut().writer();
     const stdin = io.getStdIn();
+    const stdout = io.getStdOut().writer();
 
-    var line_buffer: [100]u8 = undefined;
+    // Read line from standard input
+    var in_buff: [100]u8 = undefined;
     try stdout.print("Enter your number:", .{});
-    var value = try read_line_as_num(stdin, &line_buffer);
+    const amnt = try stdin.read(&in_buff);
 
-    try stdout.print("Your value is {} of type {}", .{value, @TypeOf(value)});
-}
+    if (amnt == in_buff.len) {return InputError.InputToLong;}
 
-fn read_line_as_num(input: anytype, buffer: []u8) !u8
-{
-    const amnt = try input.read(buffer);
-
-    if (amnt == buffer.len) {return InputError.InputToLong;}
-
-    const line = std.mem.trimRight(u8, buffer[0..amnt], "\r\n");
-    const value = fmt.parseUnsigned(u8, line, 10)
+    // Parse line into numeric value
+    const line = mem.trimRight(u8, in_buff[0..amnt], "\r\n");
+    var value = fmt.parseFloat(f32, line)
         catch {return InputError.InvalidInputString;};
     
-    return value;
+    try stdout.print("Your value is {} of type {}\n", .{value, @TypeOf(value)});
+
+    // Define data structure for result
+    const alocc = heap.page_allocator;
+    var result = std.ArrayList(u8).init(alocc);
+    defer result.deinit();
+
+    if (value == 0)
+    {
+        try result.appendSlice("Z");
+    }
+    else
+    {
+        try result.appendSlice("Hello");
+    }
+
+    // Print result
+    for (result.items) |char|
+    {
+        try stdout.print("-{c}-", .{char});
+    }
+    try stdout.print("\n", .{});
 }
 
 const InputError = error
