@@ -1,14 +1,16 @@
 #lang racket
 
-(display "Enter your number:")
-(define content 
-    (read-line (current-input-port) 'return))
-(define line-to-num
-    (string->number content))
+(provide rkt-main)
 
-(printf "~a has been read in\n"
-    content)
-(if line-to-num
-    (printf "~a is your value"
-        line-to-num)
-    (error "Input could not be read as a valid number."))
+(define (rkt-main)
+    (get-line))
+
+(define (get-line)
+    (display "Enter your number:\n")
+    (let [[line
+            (string->number
+            (read-line (current-input-port)
+                    'any))]]
+        (if line
+            line
+            (error "Invalid input string given. Expected a number."))))
