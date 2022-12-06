@@ -21,7 +21,7 @@
 (define (is-valid? val)
     (let [[test-val (* 12 val)]
           [bound 2399999]]
-        (and (integer? test-val)
+        (and (positive-integer? test-val)
             (<= test-val
                 bound))))
 
