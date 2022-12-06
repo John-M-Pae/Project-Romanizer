@@ -28,11 +28,23 @@
 (define (roman value)
     (if (zero? value)
         "Z"
-        (roman-iter value)))
-(define (roman-iter value)
-    value)
+        (roman-iter value "" Numerals)))
 
-(define numerals
+(define (roman-iter value result numerals)
+    (cond ((zero? value)
+            result)
+        ((>= value (caar numerals))
+            (roman-iter
+                (- value (caar numerals))
+                (string-append result (cadar numerals))
+                numerals))
+        (else value
+            (roman-iter
+                value
+                result
+                (cdr numerals)))))
+
+(define Numerals
     (let [[arab-list (list (power 5)
                            (* 5 (power 4))
                            (power 4)
