@@ -25,5 +25,31 @@
             (<= test-val
                 bound))))
 
-(define (roman val)
-    val)
+(define (roman value)
+    (if (zero? value)
+        "Z"
+        (roman-iter value)))
+(define (roman-iter value)
+    value)
+
+(define numerals
+    (let [[arab-list (list (power 5)
+                           (* 5 (power 4))
+                           (power 4)
+                           (* 5 (power 3))
+                           (power 3)
+                           (* 9 100)
+                           (* 5 100)
+                           (* 4 100)
+                           100 90 50 40 10 9 5 4 1
+                           (/ 1 2)
+                           (/ 5 12)
+                           (/ 1 3)
+                           (/ 1 4)
+                           (/ 1 6)
+                           (/ 1 2))]
+          [roman-list (list "ↈ" "ↇ" "ↂ" "ↁ" "ↀ" "Cↀ" "D" "CD" "C" "XC" "L" "XL" "X" "IX" "V" "IV" "I" "S" "⁙" "∷" "∴" ":" "·")]]
+         (map list arab-list roman-list)))
+
+(define (power n)
+    (expt 10 n))
