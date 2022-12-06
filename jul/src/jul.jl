@@ -17,7 +17,7 @@ function read_number_in()
     return val
 end
 
-valid(val) = isinteger(12val) && 12val <= 12(10^5 + 9* +(10^4, 10^3, 10^2, 10, 1) + 11)
+valid(val) = isinteger(12val) && val >= 0 && 12val <= 12(10^5 + 9* +(10^4, 10^3, 10^2, 10, 1)) + 11 
 
 function roman(val)
     if val == 0
